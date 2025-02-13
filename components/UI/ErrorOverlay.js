@@ -1,15 +1,16 @@
-import { ActivityIndicator, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, Button } from "react-native";
 import { GlobalStyles } from "../../constants/styles";
 
-function LoadingOverlay() {
+function ErrorOverlay({ message }) {
   return (
     <View style={styles.container}>
-      <ActivityIndicator size="large" color="white" />
+      <Text style={[styles.text, styles.title]}>An error occured</Text>
+      <Text style={styles.text}>{message}</Text>
     </View>
   );
 }
 
-export default LoadingOverlay;
+export default ErrorOverlay;
 
 const styles = StyleSheet.create({
   container: {
@@ -21,5 +22,17 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "100%",
     height: "100%",
+  },
+  text: {
+    color: "white",
+    textAlign: "center",
+    marginBottom: 8,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  message: {
+    fontSize: 16,
   },
 });
